@@ -14,7 +14,8 @@ struct ContentView: View {
             List {
                 if let products = viewModel.getRandomProducts() {
                     ForEach(products, id: \.name) { product in
-                        Text(product.name)
+                        ProductCell(product: product)
+                            .listRowSeparator(.hidden)
                     }
                 } else {
                     Text("Products is nil")

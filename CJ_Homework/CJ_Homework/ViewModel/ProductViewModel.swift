@@ -21,9 +21,9 @@ class ProductListViewModel: ObservableObject, Identifiable {
             return nil
         }
         //TODO: 임의의 상품 데이터 3개 이상 추출
-        //중복제거
+        ///중복제거
         let uniqueProducts = Array(Dictionary(grouping: self.products, by: \.id).compactMap { $0.value.first })
-        //3개이상 추출
+        ///3개이상 추출
         return Array(uniqueProducts[0..<min(3, uniqueProducts.count)])
     }
     
