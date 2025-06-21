@@ -8,22 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var viewModel = ProductListViewModel()
     var body: some View {
-        NavigationView {
-            List {
-                if let products = viewModel.getRandomProducts() {
-                    ForEach(products, id: \.name) { product in
-                        NavigationLink(destination: ProductDetail(product: product)) {
-                            ProductCell(product: product)
-                                .listRowSeparator(.hidden)
-                        }
-                    }
-                } else {
-                    Text("Products is nil")
-                }
-            }
-        }
+        ProductList()
     }
 }
 
