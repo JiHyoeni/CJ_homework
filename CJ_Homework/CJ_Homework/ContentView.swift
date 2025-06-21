@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var viewModel = ProductListViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                if let products = viewModel.getRandomProducts() {
+                    ForEach(products, id: \.name) { product in
+                        Text(product.name)
+                    }
+                } else {
+                    Text("Products is nil")
+                }
+            }
         }
-        .padding()
     }
 }
 
