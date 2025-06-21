@@ -12,7 +12,7 @@ struct ProductList: View {
         NavigationView {
             List {
                 if let products = viewModel.getRandomProducts() {
-                    ForEach(products, id: \.name) { product in
+                    ForEach(products, id: \.id) { product in
                         NavigationLink(destination: ProductDetail(product: product)) {
                             ProductCell(product: product)
                         }
@@ -22,6 +22,7 @@ struct ProductList: View {
                     Text("Products is nil")
                 }
             }
+            .navigationTitle("상품 리스트")
         }
     }
 }
