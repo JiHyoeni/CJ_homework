@@ -17,6 +17,8 @@ struct ProductWebView: UIViewRepresentable {
             return WKWebView()
         }
         let webView = WKWebView()
+        
+        webView.allowsBackForwardNavigationGestures = true  //스와이프로 뒤로/앞으로 가기
         webView.load(URLRequest(url: url))
         
         return webView
