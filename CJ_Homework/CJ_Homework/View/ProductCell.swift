@@ -70,6 +70,14 @@ struct ProductCell: View {
                         .padding(.leading, 30)
                 }
                 
+                //MARK: rating
+                HStack(alignment: .bottom){
+                    RatingView(rating: product.rating)
+                        .padding(.leading, 30)
+                    Text("(\(String(format: "%.1f", product.rating)))")
+                        .font(.system(size: 12))
+                }
+                
                 //MARK: tags
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .center) {
@@ -81,6 +89,16 @@ struct ProductCell: View {
                                 .background(Color.gray.opacity(0.2))
                                 .clipShape(Capsule())
                         }
+                    }
+                }
+                .padding(.leading, 30)
+                
+                //MARK: benefit
+                HStack(alignment: .center) {
+                    ForEach(product.benefits, id: \.self) { benetfit in
+                        Text(product.benefits.last == benetfit ? benetfit : "\(benetfit),")
+                            .font(.system(size: 12))
+                            .underline()
                     }
                 }
                 .padding(.leading, 30)
