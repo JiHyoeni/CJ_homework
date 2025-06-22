@@ -26,7 +26,7 @@ struct ProductList: View {
         }
     }
 }
-struct PProductList_Preview: PreviewProvider {
+struct ProductList_Preview: PreviewProvider {
     static var previews: some View {
         ProductList()
     }
