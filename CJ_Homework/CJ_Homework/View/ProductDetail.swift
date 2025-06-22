@@ -30,6 +30,7 @@ struct ProductDetail: View {
                             .frame(width: 30, height: 30)
                             .clipShape(Circle())
                     }
+                    .accessibilityLabel("뒤로가기") //UI test에서 식별하기 위해
                     Spacer()    //좌측 왼쪽 정렬
                 }
                 .padding(.leading, 20)
